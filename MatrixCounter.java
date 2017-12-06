@@ -11,9 +11,11 @@ public class MatrixCounter implements Runnable {
 	}
 
 	public void run() {
-		for(int i=0;i<matrix.getCols();i++){
-			matrix.setMatSum(matrix.getMatValue(row, i));
-		}
+		int sum = 0;
+		for (int i = 0; i < matrix.getCols(); i++)
+			sum += matrix.getMatValue(row, i);
+		// matrix.setMatSum(matrix.getMatValue(row, i));
+		matrix.setMatSum(sum);
 	}
 
 }

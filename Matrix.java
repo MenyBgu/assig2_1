@@ -9,9 +9,9 @@ public class Matrix {
 
 	Matrix(int rows, int cols) {
 		this.rows = rows;
-		this.cols =cols;
+		this.cols = cols;
 		matrix = new int[rows][cols];
-		matrixSum=0;
+		matrixSum = 0;
 	}
 
 	public void fill() {
@@ -25,19 +25,24 @@ public class Matrix {
 	public void calc() {
 		matrixSum = rows * cols;
 	}
-	
-	public void setMatSum(int i){
-		matrixSum+=i;
+
+	/*
+	 * public void setMatSum(int i) { matrixSum += i; } //לפני התיקון
+	 */
+
+	public synchronized void setMatSum(int i) { // אחרי התיקון
+		matrixSum += i;
 	}
-	
-	public void setMatSum2(int i){
-		matrixSum=i;
+
+	public void clearSum() {
+		matrixSum = 0;
 	}
-	
-	public int getCols(){
+
+	public int getCols() {
 		return cols;
 	}
-	public int getMatValue(int row,int i){
+
+	public int getMatValue(int row, int i) {
 		return matrix[row][i];
 	}
 
